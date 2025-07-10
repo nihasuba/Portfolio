@@ -19,7 +19,7 @@ export default function Contacts() {
               <Mail className="h-5 w-5 text-sky-400" />
               <h2 className="text-3xl md:text-4xl font-extrabold text-center bg-gradient-to-r from-sky-400 via-fuchsia-500 to-blue-500 bg-clip-text text-transparent animate-gradient-x">Get In Touch</h2>
             </div>
-            <h3 className="text-2xl md:text-3xl font-bold text-slate-100">Let's work together on your next project</h3>
+            <h3 className="text-xl md:text-2xl font-bold text-slate-300">Let's work together on your next project</h3>
             <p className="text-slate-500 text-lg">
               I'm currently available for freelance work and full-time positions. If you have a project that you
               want to get started or need help with something, feel free to reach out.

@@ -6,35 +6,42 @@ import { useInView } from "@/lib/useInView";
 export default function Projects() {
   const [ref, inView] = useInView({ threshold: 0.15 });
   const projects = [
+    
     {
       title: "E-commerce Platform",
       description: "A full-featured online store with payment processing and inventory management.",
-      tags: ["React", "Node.js", "MongoDB"],
-      image: "/placeholder.svg?height=300&width=500",
+      tags: ["React", "PHP", "MySQL"],
+      image: "elitez.png",
     },
     {
       title: "Task Management App",
       description: "A productivity application for teams to manage projects and track progress.",
-      tags: ["Next.js", "TypeScript", "PostgreSQL"],
-      image: "/placeholder.svg?height=300&width=500",
+      tags: ["React", "Django", "PostgreSQL"],
+      image: "/task-manager.png",
     },
     {
       title: "Portfolio Website",
       description: "A responsive portfolio website showcasing my work, skills, and contact information. Built with React, Tailwind CSS, and Framer Motion for smooth animations.",
-      tags: ["React", "Tailwind CSS", "Framer Motion"],
-      image: "/placeholder.svg?height=300&width=500",
+      tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
+      image: "/portfolio.png",
     },
     {
-      title: "MERN Todo List",
-      description: "A full-stack todo list app with user registration and login. Built using MongoDB, Express, React, and Node.js.",
+      title: "Todo List in MERN",
+      description: "A full-stack todo list app with user registration and login with forgot password email system.",
       tags: ["MongoDB", "Express", "React", "Node.js", "Auth"],
-      image: "/placeholder.svg?height=300&width=500",
+      image: "/to_do.png",
     },
     {
       title: "EduConnect System (In Progress)",
-      description: "A modern education management platform. Currently working on this project using Next.js, PostgreSQL, Django, and Supabase for real-time features and robust backend integration.",
+      description: "A Online education platform. Currently working on this project.",
       tags: ["Next.js", "PostgreSQL", "Django", "Supabase", "In Progress"],
-      image: "/placeholder.svg?height=300&width=500",
+      image: "/educonnect.png",
+    },
+    {
+      title: "Book Review",
+      description: "Discover, and review your favorite books. A platform to explore books, write reviews.",
+      tags: [ "Next.js", "PostgreSQL", "Django", "TailwindCSS"],
+      image: "/bookreview.png",
     },
   ];
   return (
@@ -47,7 +54,7 @@ export default function Projects() {
         {/* Section Header */}
         <div className="text-center space-y-4">
           <div className="inline-flex items-center gap-2 justify-center">
-            <Briefcase className="h-6 w-6 text-white" />
+            <Briefcase className="h-6 w-6 text-blue-500" />
             <h2 className="text-4xl font-extrabold text-center bg-gradient-to-r from-sky-400 via-fuchsia-500 to-blue-500 bg-clip-text text-transparent animate-gradient-x">Featured Projects</h2>
           </div>
           <p className="text-slate-500 max-w-2xl mx-auto text-lg font-medium">
@@ -61,13 +68,13 @@ export default function Projects() {
             <div
               key={index}
               style={inView ? { animationDelay: `${index * 120}ms` } : {}}
-              className={`bg-slate-800 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden animate-super-in ${inView ? '' : 'opacity-0 scale-95'}`}
+              className={`bg-slate-800 rounded-2xl shadow-lg border border-slate-700 transition-transform duration-300 cursor-pointer ${inView ? 'animate-super-in' : 'opacity-0 translate-y-8'} hover:scale-105 hover:shadow-xl hover:border-sky-400 overflow-hidden`}
             >
               <div className="h-48 overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="object-cover w-full h-full transition-transform hover:scale-105 duration-300"
+                  className="object-contain w-full h-48  transition-transform hover:scale-105 duration-300"
                 />
               </div>
               <div className="p-6 space-y-4">
@@ -91,11 +98,13 @@ export default function Projects() {
         {/* View All Projects Button */}
         <div className="flex justify-center pt-10">
           <a
-            href="#"
-            className="inline-flex items-center px-6 py-3 border border-sky-400 text-sky-400 font-bold text-lg rounded-lg hover:bg-sky-50 transition shadow-lg hover:shadow-sky-400/30"
+            href="https://github.com/nihasuba?tab=repositories"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-sky-400 to-blue-500 text-white font-bold text-lg rounded-xl hover:from-sky-500 hover:to-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 border-0"
           >
             View All Projects
-            <ChevronRight className="ml-2 h-5 w-5" />
+            <ExternalLink className="ml-2 h-5 w-5" />
           </a>
         </div>
       </div>

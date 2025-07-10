@@ -13,14 +13,23 @@ export default function About()  {
         <div className="container mx-auto px-4">
           <div className={`flex flex-col md:flex-row gap-10 md:gap-16 items-center transition-transform duration-700 ${inView ? 'animate-super-in' : 'translate-y-8 opacity-0'}` }>
             {/* Left Image */}
-            <div className="flex-1">
-              <img
-                src="/placeholder.svg"
-                alt="About me"
-                width={500}
-                height={600}
-                className="rounded-lg object-cover shadow-lg"
-              />
+            <div className="flex-1 flex justify-center">
+              <div className="relative group">
+                {/* Decorative border frame */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-sky-400 via-fuchsia-500 to-blue-500 rounded-lg p-1 group-hover:scale-105 transition-transform duration-300"></div>
+                {/* Image container */}
+                <div className="relative bg-slate-900 rounded-lg p-2">
+                  <img
+                    src="/niha12.png"
+                    alt="About me"
+                    width={500}
+                    height={600}
+                    className="rounded-lg object-cover shadow-xl w-full max-w-xs md:w-72 lg:w-80 group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                {/* Glow effect */}
+                <div className="absolute -inset-2 bg-gradient-to-tr from-sky-400 via-fuchsia-500 to-blue-500 rounded-lg blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-300 -z-10"></div>
+              </div>
             </div>
             {/* Right Content */}
             <div className="flex-1 space-y-6">
@@ -28,7 +37,7 @@ export default function About()  {
                 <div className="h-5 w-5 bg-sky-400 rounded-full" />
                 <h2 className="text-4xl font-extrabold text-center bg-gradient-to-r from-sky-400 via-fuchsia-500 to-blue-500 bg-clip-text text-transparent animate-gradient-x">About Me</h2>
               </div>
-              <h3 className="text-3xl md:text-4xl font-bold leading-tight text-slate-100">
+              <h3 className="text-xl md:text-2xl font-bold leading-tight text-slate-300">
                 A Passionate Software Developer
               </h3>
               <p className="text-slate-500 text-lg leading-relaxed font-medium">
