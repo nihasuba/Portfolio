@@ -1,14 +1,18 @@
 "use client";
 import { useInView } from "@/lib/useInView";
+import MotionSection from "@/components/MotionSection";
 
 export default function About()  {
   const [ref, inView] = useInView({ threshold: 0.15 });
   return (
     <div>
-      <section
+      <MotionSection
         id="about"
         ref={ref}
-        className={`animated-gradient-bg py-16 md:py-24 text-slate-50 transition-opacity duration-700 ${inView ? 'animate-super-in' : 'opacity-0'}`}
+        className={`animated-gradient-bg py-16 md:py-24 text-slate-50`}
+        initial={{ opacity: 0, y: 40 }}
+        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
       >
         <div className="container mx-auto px-4">
           <div className={`flex flex-col md:flex-row gap-10 md:gap-16 items-center transition-transform duration-700 ${inView ? 'animate-super-in' : 'translate-y-8 opacity-0'}` }>
@@ -72,7 +76,7 @@ export default function About()  {
             </div>
           </div>
         </div>
-      </section>
+      </MotionSection>
     </div>
   );
 };

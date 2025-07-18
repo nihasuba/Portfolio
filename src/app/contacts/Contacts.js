@@ -3,15 +3,19 @@ import { Mail, Linkedin, Github } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useInView } from "@/lib/useInView";
+import MotionSection from "@/components/MotionSection";
 
 export default function Contacts() {
   const [ref, inView] = useInView({ threshold: 0.15 });
   return (
     <div className="min-h-screen flex items-center justify-center animated-gradient-bg text-white px-4">
-      <section
+      <MotionSection
         id="contact"
         ref={ref}
-        className={`py-16 md:py-24 w-full max-w-3xl transition-opacity duration-700 ${inView ? 'animate-super-in' : 'opacity-0'}`}
+        className="py-16 md:py-24 w-full max-w-3xl"
+        initial={{ opacity: 0, y: 40 }}
+        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
       >
         <div className="text-center space-y-12">
           <div className="space-y-4">
@@ -90,7 +94,7 @@ export default function Contacts() {
           </div>
           
         </div>
-      </section>
+      </MotionSection>
     </div>
   );
 }

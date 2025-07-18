@@ -7,6 +7,7 @@ import Projects from "./projects/Projects";
 import Contacts from "./contacts/Contacts";
 import Skills from "./skills/Skills";
 import PageTransition from "@/components/ui/PageTransition";
+import MotionProvider from "@/components/MotionProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="bg-slate-900 text-slate-50 min-h-screen">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <MotionProvider>
         <Navbar />
         <PageTransition>
         {children}
@@ -36,6 +38,7 @@ export default function RootLayout({ children }) {
         <Contacts />
         </PageTransition>
         <Footer />
+        </MotionProvider>
       </body>
     </html>
   );

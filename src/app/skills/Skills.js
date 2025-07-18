@@ -2,6 +2,8 @@
 import React from 'react'
 import { Code } from 'lucide-react';
 import { useInView } from "@/lib/useInView";
+import MotionSection from "@/components/MotionSection";
+import MotionDiv from "@/components/MotionDiv";
 
 const skills = [
   { name: "JavaScript", logo: "/logos/javascript.svg" },
@@ -52,10 +54,13 @@ const Skills = () => {
 
   return (
     <div>
-      <section
+      <MotionSection
         id="skills"
         ref={ref}
-        className={`bg-slate-900 py-16 md:py-24 transition-opacity duration-700 ${inView ? 'animate-super-in' : 'opacity-0'}`}
+        className="bg-slate-900 py-16 md:py-24"
+        initial={{ opacity: 0, y: 40 }}
+        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
       >
         <div className="container mx-auto px-4 space-y-12">
           {/* Title and Intro */}
@@ -71,17 +76,21 @@ const Skills = () => {
           {/* Skills Grid */}
           <div className="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-7 gap-4 space-x-2">
             {skills.map((skill, index) => (
-              <div
+              <MotionDiv
                 key={skill.name}
-                style={inView ? { animationDelay: `${index * 80}ms` } : {}}
-                className={`bg-slate-900 shadow-sm hover:shadow-lg rounded-xl p-4 text-center w-24 transition-all border border-slate-700 hover:border-sky-400 animate-super-in ${inView ? '' : 'opacity-0 scale-95'}`}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.5, delay: inView ? 0.2 + index * 0.07 : 0, ease: 'easeOut' }}
+                className={
+                  `bg-slate-900 shadow-sm hover:shadow-lg rounded-xl p-4 text-center w-24 transition-all border border-slate-700 hover:border-sky-400`
+                }
               >
                 {renderSkillLogo(skill)}
-              </div>
+              </MotionDiv>
             ))}
           </div>
         </div>
-      </section>
+      </MotionSection>
     </div>
   )
 }

@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import { Github, Linkedin, Menu, X } from 'lucide-react';
 import React, { useState, useEffect } from 'react';
+import MotionDiv from "@/components/MotionDiv";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -51,7 +52,12 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="bg-slate-900/95 backdrop-blur-sm shadow-lg fixed w-full z-10 border-b border-slate-800 animate-fade-in">
+    <MotionDiv
+      className="bg-slate-900/95 backdrop-blur-sm shadow-lg fixed w-full z-10 border-b border-slate-800 animate-fade-in"
+      initial={{ opacity: 0, y: -30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+    >
       <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-2 md:gap-0">
         <div className="flex w-full md:w-auto justify-between items-center">
           <span className="text-xl md:text-2xl font-bold bg-gradient-to-r from-sky-400 to-white bg-clip-text text-transparent tracking-tight mb-2 md:mb-0">Portfolio</span>
@@ -118,6 +124,6 @@ export default function Navbar() {
           </a>
         </div>
       </div>
-    </nav>
+    </MotionDiv>
   )
 }
