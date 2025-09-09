@@ -106,23 +106,14 @@ export default function Navbar() {
           ))}
         </div>
         <div className="flex items-center space-x-4 mt-2 md:mt-0">
-          <a 
-            href="https://github.com/nihasuba" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="text-slate-400 hover:text-sky-400 transition-all duration-300 p-2 rounded-lg hover:bg-slate-800/50 focus:outline-none group"
-          >
-            <Github className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" />
-          </a>
-          <a 
-            href="https://www.linkedin.com/in/nihashini-subatharan" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="text-slate-400 hover:text-sky-400 transition-all duration-300 p-2 rounded-lg hover:bg-slate-800/50 focus:outline-none group"
-          >
-            <Linkedin className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" />
-          </a>
-        </div>
+  <a
+    href="/cv.pdf" // Place your CV file at public/cv.pdf
+    download
+    className="bg-sky-500 hover:bg-sky-600 text-white font-semibold px-4 py-2 rounded-lg transition-all duration-300 focus:outline-none flex items-center gap-2"
+  >
+    Download CV
+  </a>
+</div>
       </div>
     </MotionDiv>
   )

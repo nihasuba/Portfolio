@@ -23,7 +23,7 @@ export default function Home() {
           <span className="absolute inset-0 rounded-full bg-gradient-to-tr from-sky-400 via-fuchsia-500 to-blue-500 p-1 animate-pulse-slow group-hover:scale-110 group-hover:shadow-2xl transition-transform duration-300"></span>
           {/* Profile image with highlight */}
           <img
-            src="/niha7.jpg"
+            src="/niha13.png"
             alt="Profile"
             className="w-44 h-44 rounded-full object-cover border-4 border-white shadow-2xl relative z-10 group-hover:scale-110 transition-transform duration-300 ring-4 ring-sky-400/40"
           />

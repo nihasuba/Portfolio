@@ -30,7 +30,7 @@ export default function Projects() {
     },
     {
       title: "Portfolio Website",
-      description: "A responsive portfolio website showcasing my work, skills, and contact information. Built with React, Tailwind CSS, and Framer Motion for smooth animations.",
+      description: "A responsive portfolio website showcasing my work, skills, and contact information.",
       tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
       image: "/portfolio.png",
     },
