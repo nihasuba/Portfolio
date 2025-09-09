@@ -7,7 +7,7 @@ import MotionDiv from '@/components/MotionDiv';
 export default function Home() {
   return (
     <MotionMain
-      className="min-h-screen flex flex-col items-center justify-center bg-slate-900 text-white px-4 sm:px-8 py-8"
+      className="min-h-screen flex flex-col pt-28 items-center justify-center bg-slate-900 text-white px-4 sm:px-8 py-8"
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, delay: 0.2, ease: 'easeOut' }}

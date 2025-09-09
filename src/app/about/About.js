@@ -55,29 +55,29 @@ export default function About()  {
 
               {/* Description */}
               <p className="text-slate-400 text-lg leading-relaxed font-medium text-center md:text-left">
-                I'm <span className="text-sky-400 font-semibold">Nihashini</span>, a{" "}
-                <span className="text-fuchsia-400 font-semibold">Computer Science and Technology undergraduate</span>{" "}
-                at <span className="text-blue-400">Uva Wellassa University</span>, passionate about building{" "}
-                <span className="text-sky-300">scalable</span>,{" "}
-                <span className="text-fuchsia-300">user-friendly</span> web applications.
+                I'm <span className="text-slate-400 font-semibold">Nihashini</span>, a{" "}
+                <span className="text-slate-400 font-semibold">Computer Science and Technology undergraduate</span>{" "}
+                at <span className="text-slate-400">Uva Wellassa University</span>, passionate about building{" "}
+                <span className="text-slate-400">scalable</span>,{" "}
+                <span className="text-slate-400">user-friendly</span> web applications.
               </p>
 
               <p className="text-slate-400 text-lg leading-relaxed text-center md:text-left">
                 I specialize in{" "}
-                <span className="text-sky-400">full-stack development</span> with{" "}
+                <span className="text-slate-400">full-stack development</span> with{" "}
                 <span className="text-blue-400">React, Node.js, Django, PHP, Java, Python,</span> and{" "}
-                <span className="text-fuchsia-400">MySQL</span>, focusing on clean code, REST APIs, and{" "}
-                <span className="text-sky-300">responsive design</span>.
+                <span className="text-blue-400">MySQL</span>, focusing on clean code, REST APIs, and{" "}
+                <span className="text-slate-400">responsive design</span>.
               </p>
 
               <p className="text-slate-400 text-lg leading-relaxed text-center md:text-left">
                 I've developed projects like an{" "}
-                <span className="text-sky-400">E-Commerce Platform</span>, a{" "}
-                <span className="text-fuchsia-400">Book Review System</span>, and a{" "}
-                <span className="text-blue-400">MERN stack To-Do app</span>, emphasizing{" "}
-                <span className="text-sky-300">intuitive user experiences</span>,{" "}
-                <span className="text-fuchsia-300">secure authentication</span>, and{" "}
-                <span className="text-blue-300">efficient data handling</span>.
+                <span className="text-blue-400">E-Commerce Platform</span>, a{" "}
+                <span className="text-blue-400">Book Review System</span>, and a{" "}
+                <span className="text-blue-400">MERN stack To-Do app, Car Rental System</span>, emphasizing{" "}
+                <span className="text-blue-400">intuitive user experiences</span>,{" "}
+                <span className="text-blue-400">secure authentication</span>, and{" "}
+                <span className="text-blue-400">efficient data handling</span>.
               </p>
             </div>
 
