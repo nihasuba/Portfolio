@@ -5,7 +5,9 @@ import { Button } from "@/components/ui/button";
 import { useInView } from "@/lib/useInView";
 import MotionSection from "@/components/MotionSection";
 import { useState } from "react";
+import { motion } from "framer-motion/client";
 import axios from "axios";
+import MotionDiv from "@/components/MotionDiv";
 
 export default function Contacts() {
   const [ref, inView] = useInView({ threshold: 0.15 });
@@ -22,7 +24,12 @@ export default function Contacts() {
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
         {/* Heading */}
-        <div className="text-center mb-12 flex flex-col items-center gap-4">
+        <MotionDiv
+          className="text-center mb-12 flex flex-col items-center gap-4"
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
           <div className="flex items-center gap-2">
             <Send className="w-8 h-8 text-sky-400 animate-bounce" />
             <h2 className="text-4xl font-extrabold bg-gradient-to-r from-sky-400 via-fuchsia-500 to-blue-500 bg-clip-text text-transparent">
@@ -32,38 +39,60 @@ export default function Contacts() {
           <p className="text-slate-400 max-w-2xl text-lg font-medium">
             I’m currently available for freelance work and full-time positions. Feel free to reach out via email or connect with me on LinkedIn or GitHub.
           </p>
-        </div>
+        </MotionDiv>
 
         {/* Two columns */}
         <div className="flex flex-col md:flex-row gap-12 items-start justify-center w-full">
           
           {/* Left Column - Contact Details */}
-          <div className="w-full md:w-1/2 flex flex-col gap-6">
+          <MotionDiv
+            className="w-full md:w-1/2 flex flex-col gap-6"
+            initial="hidden"
+            animate={inView ? "show" : "hidden"}
+            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.12 } } }}
+          >
             {/* Email */}
-            <div className="flex items-center gap-4 p-4 bg-slate-800 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+            <MotionDiv
+              className="flex items-center gap-4 p-4 bg-slate-800 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+              variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0 } }}
+              whileHover={{ scale: 1.02 }}
+            >
               <Mail className="w-6 h-6 text-sky-400" />
               <a href="mailto:nihashinisuba@gmail.com" className="text-sky-400 font-medium hover:underline">
                 nihashinisuba@gmail.com
               </a>
-            </div>
+            </MotionDiv>
 
             {/* LinkedIn */}
-            <div className="flex items-center gap-4 p-4 bg-slate-800 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
-                 onClick={() => window.open("https://www.linkedin.com/in/nihashini-subatharan", "_blank")}>
+            <MotionDiv
+              className="flex items-center gap-4 p-4 bg-slate-800 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
+              onClick={() => window.open("https://www.linkedin.com/in/nihashini-subatharan", "_blank")}
+              variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0 } }}
+              whileHover={{ scale: 1.02 }}
+            >
               <Linkedin className="w-6 h-6 text-sky-400" />
               <span className="text-sky-400 font-medium hover:underline">linkedin.com/in/nihashini-subatharan</span>
-            </div>
+            </MotionDiv>
 
             {/* GitHub */}
-            <div className="flex items-center gap-4 p-4 bg-slate-800 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
-                 onClick={() => window.open("https://github.com/nihasuba", "_blank")}>
+            <MotionDiv
+              className="flex items-center gap-4 p-4 bg-slate-800 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
+              onClick={() => window.open("https://github.com/nihasuba", "_blank")}
+              variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0 } }}
+              whileHover={{ scale: 1.02 }}
+            >
               <Github className="w-6 h-6 text-sky-400" />
               <span className="text-sky-400 font-medium hover:underline">github.com/nihasuba</span>
-            </div>
-          </div>
+            </MotionDiv>
+          </MotionDiv>
 
           {/* Right Column - Contact Form */}
-          <div className="w-full md:w-1/2 bg-slate-800 rounded-lg shadow-lg p-8">
+          <MotionDiv
+            className="w-full md:w-1/2 bg-slate-800 rounded-lg shadow-lg p-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+          >
             <form
               className="space-y-6"
               method="POST"
@@ -115,7 +144,7 @@ export default function Contacts() {
               />
               <Button
                 type="submit"
-                className="w-full bg-gradient-to-r from-sky-400 to-blue-500 hover:from-blue-500 hover:to-sky-400 text-white font-bold py-2 px-4 rounded"
+                className="w-full bg-gradient-to-r from-sky-400 to-blue-500 hover:from-blue-500 hover:to-sky-400 text-white font-bold py-2 px-4 rounded active:scale-[0.98] transition-transform"
               >
                 Send
               </Button>
@@ -123,7 +152,7 @@ export default function Contacts() {
                 <div className="mt-2 text-center text-sky-400 font-semibold">{formStatus}</div>
               )}
             </form>
-          </div>
+          </MotionDiv>
 
         </div>
       </MotionSection>

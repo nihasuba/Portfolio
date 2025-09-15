@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Github, Linkedin } from 'lucide-react';
 import MotionMain from '@/components/MotionMain';
 import MotionDiv from '@/components/MotionDiv';
+import { motion } from 'framer-motion/client';
 
 export default function Home() {
   return (
@@ -67,16 +68,25 @@ export default function Home() {
         </MotionDiv>
         <MotionDiv
           className="flex gap-4 justify-center mt-6"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 1.1, ease: 'easeOut' }}
+          initial="hidden"
+          animate="show"
+          variants={{ hidden: {}, show: { transition: { staggerChildren: 0.12, delayChildren: 0.8 } } }}
         >
-          <a href="https://github.com/nihasuba" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-sky-400 transition-all p-2 rounded-full bg-slate-800 hover:bg-slate-700">
-            <Github className="w-7 h-7" />
-          </a>
-          <a href="https://www.linkedin.com/in/nihashini-subatharan" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-sky-400 transition-all p-2 rounded-full bg-slate-800 hover:bg-slate-700">
-            <Linkedin className="w-7 h-7" />
-          </a>
+          {[{ href: 'https://github.com/nihasuba', Icon: Github }, { href: 'https://www.linkedin.com/in/nihashini-subatharan', Icon: Linkedin }].map(({ href, Icon }) => (
+            <MotionDiv
+              key={href}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-500 hover:text-sky-400 transition-all p-2 rounded-full bg-slate-800 hover:bg-slate-700"
+              variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
+              whileHover={{ y: -2, scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+              as="a"
+            >
+              <Icon className="w-7 h-7" />
+            </MotionDiv>
+          ))}
         </MotionDiv>
       </div>
     </MotionMain>

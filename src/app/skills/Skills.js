@@ -3,7 +3,7 @@ import React from "react";
 import { Code } from "lucide-react";
 import { useInView } from "@/lib/useInView";
 import MotionSection from "@/components/MotionSection";
-import { motion } from "framer-motion"; // Add this import
+import MotionDiv from "@/components/MotionDiv";
 
 const skills = [
   { name: "JavaScript", logo: "/logos/javascript.svg" },
@@ -61,7 +61,12 @@ const Skills = () => {
       >
         <div className="container mx-auto px-4 space-y-12">
           {/* Title and Intro */}
-          <div className="text-center space-y-4">
+          <MotionDiv
+            className="text-center space-y-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             <div className="inline-flex items-center gap-2 justify-center">
               <Code className="h-6 w-6 text-blue-600 animate-bounce" />
               <h2 className="text-4xl font-extrabold bg-gradient-to-r from-sky-400 via-fuchsia-500 to-blue-500 bg-clip-text text-transparent">
@@ -71,17 +76,20 @@ const Skills = () => {
             <p className="text-slate-400 max-w-2xl mx-auto text-lg font-medium">
               I've worked with a range of technologies in the web development world, from front-end to back-end.
             </p>
-          </div>
+          </MotionDiv>
           {/* Skills Grid */}
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3 sm:gap-4">
+          <MotionDiv
+            className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3 sm:gap-4"
+            initial="hidden"
+            animate={inView ? "show" : "hidden"}
+            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.06 } } }}
+          >
             {skills.map((skill, index) => (
-              <motion.div
+              <MotionDiv
                 key={skill.name}
-                initial={{ opacity: 0, scale: 0.8, y: 30 }}
-                animate={inView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.8, y: 50 }}
+                variants={{ hidden: { opacity: 0, scale: 0.85, y: 24 }, show: { opacity: 1, scale: 1, y: 0 } }}
                 transition={{
-                  duration: 0.1,
-                  delay: inView ? 0.1 + index * 0.05 : 0,
+                  duration: 0.2,
                   ease: "easeOut",
                 }}
                 whileHover={{
@@ -91,9 +99,9 @@ const Skills = () => {
                 className="bg-slate-800 hover:bg-slate-700 rounded-xl p-3 flex flex-col items-center justify-center shadow-md transition-all cursor-pointer"
               >
                 {renderSkillLogo(skill)}
-              </motion.div>
+              </MotionDiv>
             ))}
-          </div>
+          </MotionDiv>
         </div>
       </MotionSection>
     </div>

@@ -1,6 +1,7 @@
 "use client";
 import { useInView } from "@/lib/useInView";
 import MotionSection from "@/components/MotionSection";
+import MotionDiv from "@/components/MotionDiv";
 
 export default function About()  {
   const [ref, inView] = useInView({ threshold: 0.15 });
@@ -24,7 +25,12 @@ export default function About()  {
           <div className={`flex flex-col md:flex-row gap-10 md:gap-16 items-center transition-transform duration-700 ${inView ? 'animate-super-in' : 'translate-y-8 opacity-0'}`}>
             
             {/* Left Image */}
-            <div className="flex-1 flex justify-center md:flex-none">
+            <MotionDiv
+              className="flex-1 flex justify-center md:flex-none"
+              initial={{ opacity: 0, x: -24 }}
+              animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -24 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
               <div className="relative group">
                 {/* Decorative border frame */}
                 <div className="absolute inset-0 bg-gradient-to-tr from-sky-400 via-fuchsia-500 to-blue-500 rounded-lg p-1 group-hover:scale-105 transition-transform duration-300"></div>
@@ -41,10 +47,15 @@ export default function About()  {
                 {/* Glow effect */}
                 <div className="absolute -inset-2 bg-gradient-to-tr from-sky-400 via-fuchsia-500 to-blue-500 rounded-lg blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-300 -z-10"></div>
               </div>
-            </div>
+            </MotionDiv>
 
             {/* Right Content */}
-            <div className="flex-1 md:flex-[1.5] space-y-6">
+            <MotionDiv
+              className="flex-1 md:flex-[1.5] space-y-6"
+              initial={{ opacity: 0, x: 24 }}
+              animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 24 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+            >
               {/* Heading */}
               <div className="flex items-center justify-center md:justify-start gap-3">
                 <div className="h-5 w-5 bg-sky-400 rounded-full animate-bounce" />
@@ -85,7 +96,7 @@ export default function About()  {
               </p>
 
 
-            </div>
+            </MotionDiv>
 
           </div>
         </div>

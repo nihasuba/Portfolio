@@ -58,7 +58,16 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-2 md:gap-0">
         {/* Logo + Mobile Menu */}
         <div className="flex w-full md:w-auto justify-between items-center">
-          <span className="text-xl md:text-2xl font-bold bg-gradient-to-r from-sky-400 to-white bg-clip-text text-transparent tracking-tight mb-2 md:mb-0">Portfolio</span>
+          <MotionDiv
+            as="span"
+            className="text-xl md:text-2xl font-bold bg-gradient-to-r from-sky-400 to-white bg-clip-text text-transparent tracking-tight mb-2 md:mb-0"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            whileHover={{ scale: 1.03 }}
+          >
+            Portfolio
+          </MotionDiv>
           <button
             className="md:hidden p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400 hover:bg-slate-800 transition-colors"
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
@@ -75,40 +84,47 @@ export default function Navbar() {
             bg-slate-900/95 backdrop-blur-sm md:bg-transparent absolute md:static left-0 top-16 md:top-auto px-4 md:px-0 py-4 md:py-0 border-b md:border-0 border-slate-800 md:shadow-none shadow-lg
           `}
         >
-          {navLinks.map((link) => (
-            <Link
+          {navLinks.map((link, idx) => (
+            <MotionDiv
               key={link.id}
-              href={link.href}
-              className={`
-                relative px-4 py-2 md:py-1 rounded-lg md:rounded-none
-                transition-all duration-300 ease-in-out
-                hover:text-sky-400 hover:bg-slate-800/50 md:hover:bg-transparent
-                focus:outline-none
-                w-full md:w-auto text-center
-                ${mounted && activeSection === link.id 
-                  ? 'text-sky-400 bg-slate-800/30 md:bg-transparent' 
-                  : 'text-slate-300 hover:text-sky-400'
-                }
-                group
-              `}
-              onClick={handleClose}
+              initial={{ opacity: 0, y: -6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: 0.05 + idx * 0.05 }}
+              whileHover={{ y: -1 }}
             >
-              {link.label}
-              {/* Active indicator */}
-              <span className={`
-                absolute bottom-0 left-1/2 transform -translate-x-1/2
-                w-0 h-0.5 bg-gradient-to-r from-sky-400 to-blue-500
-                transition-all duration-300 ease-in-out
-                ${mounted && activeSection === link.id ? 'w-full' : 'group-hover:w-full'}
-                hidden md:block
-              `}></span>
-              <span className="absolute inset-0 bg-gradient-to-r from-sky-400/10 to-blue-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden md:block"></span>
-            </Link>
+              <Link
+                href={link.href}
+                className={`
+                  relative px-4 py-2 md:py-1 rounded-lg md:rounded-none
+                  transition-all duration-300 ease-in-out
+                  hover:text-sky-400 hover:bg-slate-800/50 md:hover:bg-transparent
+                  focus:outline-none
+                  w-full md:w-auto text-center
+                  ${mounted && activeSection === link.id 
+                    ? 'text-sky-400 bg-slate-800/30 md:bg-transparent' 
+                    : 'text-slate-300 hover:text-sky-400'
+                  }
+                  group
+                `}
+                onClick={handleClose}
+              >
+                {link.label}
+                {/* Active indicator */}
+                <span className={`
+                  absolute bottom-0 left-1/2 transform -translate-x-1/2
+                  w-0 h-0.5 bg-gradient-to-r from-sky-400 to-blue-500
+                  transition-all duration-300 ease-in-out
+                  ${mounted && activeSection === link.id ? 'w-full' : 'group-hover:w-full'}
+                  hidden md:block
+                `}></span>
+                <span className="absolute inset-0 bg-gradient-to-r from-sky-400/10 to-blue-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden md:block"></span>
+              </Link>
+            </MotionDiv>
           ))}
 
           {/* Download CV button in mobile menu */}
           <a
-            href="/Nihashini Subatharan_cv.pdf"
+            href="/cv(Nihashini Subatharan).pdf"
             download
             className="block md:hidden bg-sky-500 hover:bg-sky-600 text-white font-semibold px-4 py-2 rounded-lg transition-all duration-300 text-center"
             onClick={handleClose}
@@ -120,7 +136,7 @@ export default function Navbar() {
         {/* Desktop Download CV */}
         <div className="hidden md:flex items-center space-x-4">
           <a
-            href="/cv.pdf"
+            href="/cv(Nihashini Subatharan).pdf"
             download
             className="bg-sky-500 hover:bg-sky-600 text-white font-semibold px-4 py-2 rounded-lg transition-all duration-300 focus:outline-none flex items-center gap-2"
           >
