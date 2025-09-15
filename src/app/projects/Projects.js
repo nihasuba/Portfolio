@@ -12,39 +12,39 @@ export default function Projects() {
     
     {
       title: "E-commerce Platform",
-      description: "A full-featured online store with payment processing and inventory management.",
-      tags: ["React", "PHP", "MySQL"],
+      description: "A full-featured online store Connects companies and shop owners. Shop owners can place orders online, and companies manage and fulfill them efficiently.",
+      tags: ["React", "PHP", "MySQL","PHP Mailer"],
       image: "elitez.png",
     },
     {
       title: "Car Rental",
       description: "Car rental web app with JWT auth, bookings, admin dashboard, ImageKit-optimized images, built using MERN stack and responsive UI.",
-      tags: ["Next.js", "Express.js", "MongoDB", "Atlas", "Imagekit"],
+      tags: ["Next.js", "Express.js", "MongoDB", "Atlas", "Imagekit", "JWT Authentication"],
       image: "/carrental.png",
     },
     {
       title: "Task Management App",
-      description: "A productivity application for teams to manage projects and track progress.",
-      tags: ["React", "Django", "PostgreSQL"],
+      description: "Users can securely log in to manage tasks, including creating, editing, and deleting them with an intuitive interface.",
+      tags: ["React", "Django", "PostgreSQL", "REST Framework"],
       image: "/task-manager.png",
     },
     {
       title: "Portfolio Website",
       description: "A responsive portfolio website showcasing my work, skills, and contact information.",
-      tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
+      tags: ["Next.js", "Tailwind CSS", "Framer Motion", "Nodemailer"],
       image: "/portfolio.png",
     },
     
     {
-      title: "EduConnect System (In Progress)",
-      description: "A Online education platform. Currently working on this project.",
-      tags: ["Next.js", "PostgreSQL", "Django", "Supabase", "In Progress"],
+      title: "EduConnect",
+      description: "Online education platform with secure payments, live classes, exams, results, and instructor/admin performance tracking.",
+      tags: ["Next.js", "PostgreSQL", "Django", "REST Framework", "Supabase"],
       image: "/educonnect.png",
     },
     {
       title: "Todo List in MERN",
       description: "A full-stack todo list app with user registration and login with forgot password email system.",
-      tags: ["MongoDB", "Express", "React", "Node.js", "Auth"],
+      tags: ["MongoDB", "Express.js", "React", "JWT Auth"],
       image: "/to_do.png",
     },
     {
@@ -67,7 +67,7 @@ export default function Projects() {
         {/* Section Header */}
         <div className="text-center space-y-4">
           <div className="inline-flex items-center gap-2 justify-center">
-            <Briefcase className="h-6 w-6 text-blue-500" />
+            <Briefcase className="h-6 w-6 text-blue-500 animate-bounce" />
             <h2 className="text-4xl font-extrabold text-center bg-gradient-to-r from-sky-400 via-fuchsia-500 to-blue-500 bg-clip-text text-transparent animate-gradient-x">Featured Projects</h2>
           </div>
           <p className="text-slate-500 max-w-2xl mx-auto text-lg font-medium">

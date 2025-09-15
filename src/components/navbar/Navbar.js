@@ -108,7 +108,7 @@ export default function Navbar() {
 
           {/* Download CV button in mobile menu */}
           <a
-            href="/cv.pdf"
+            href="/Nihashini Subatharan_cv.pdf"
             download
             className="block md:hidden bg-sky-500 hover:bg-sky-600 text-white font-semibold px-4 py-2 rounded-lg transition-all duration-300 text-center"
             onClick={handleClose}

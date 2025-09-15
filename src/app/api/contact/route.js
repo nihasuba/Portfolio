@@ -1,15 +1,17 @@
-// pages/api/contact.js  (for Next.js Pages Router)
+// app/api/contact/route.js  (for Next.js Pages Router)
+
+import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-export default async function handler(req, res) {
-  if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed" });
-  }
+export const runtime = "nodejs"; // nodemailer needs Node runtime
+export const dynamic = "force-dynamic";
 
-  const { name, email, message } = req.body;
+export async function POST(request) {
+  
+  const { name, email, message } = await request.json();
 
   if (!name || !email || !message) {
-    return res.status(400).json({ error: "Missing fields" });
+    return NextResponse.json({ error: "Missing fields" }, { status: 400 });
   }
 
   try {
@@ -26,7 +28,7 @@ export default async function handler(req, res) {
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
       to: process.env.EMAIL_TO || process.env.EMAIL_USER, // who receives
-      subject: `New Contact Message from ${name}`,
+      subject: `Message from ${name}`,
       text: `From: ${name} <${email}>\n\n${message}`,
       html: `
         <h3>New Contact Message</h3>
@@ -36,9 +38,9 @@ export default async function handler(req, res) {
       `,
     });
 
-    res.status(200).json({ message: "Email sent successfully" });
+    return NextResponse.json({ message: "Email sent successfully" }, { status: 200 });
   } catch (error) {
     console.error("Error sending email:", error);
-    res.status(500).json({ error: "Failed to send email" });
+    return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
   }
 }

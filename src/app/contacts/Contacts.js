@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useInView } from "@/lib/useInView";
 import MotionSection from "@/components/MotionSection";
 import { useState } from "react";
+import axios from "axios";
 
 export default function Contacts() {
   const [ref, inView] = useInView({ threshold: 0.15 });
@@ -75,17 +76,20 @@ export default function Contacts() {
                   email: form.email.value,
                   message: form.message.value,
                 };
-                const res = await fetch("/api/contact", {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify(data),
-                });
-                if (res.ok) {
-                  setFormStatus("Message sent!");
-                  form.reset();
-                } else {
+                try {
+                  const res = await axios.post("/api/contact",data )
+                  console.log(res);
+                  if (res.status === 200) {
+                    setFormStatus("Message sent!");
+                    form.reset();
+                  } else {
+                    setFormStatus("Failed to send message.");
+                  }
+                } catch (error) {
+                  console.error(error);
                   setFormStatus("Failed to send message.");
                 }
+                
               }}
             >
               <input

@@ -31,7 +31,7 @@ export default function About()  {
                 {/* Image container */}
                 <div className="relative bg-slate-900 rounded-lg p-2">
                   <img
-                    src="/niha15.jpg"
+                    src="/niha5.jpg"
                     alt="About me"
                     width={400}
                     height={780}
@@ -44,10 +44,10 @@ export default function About()  {
             </div>
 
             {/* Right Content */}
-            <div className="flex-1 md:flex-[1.5] space-y-8">
+            <div className="flex-1 md:flex-[1.5] space-y-6">
               {/* Heading */}
               <div className="flex items-center justify-center md:justify-start gap-3">
-                <div className="h-5 w-5 bg-sky-400 rounded-full" />
+                <div className="h-5 w-5 bg-sky-400 rounded-full animate-bounce" />
                 <h3 className="text-4xl font-extrabold leading-tight bg-gradient-to-r from-sky-400 via-fuchsia-500 to-blue-500 bg-clip-text text-transparent">
                   About Me
                 </h3>
@@ -57,7 +57,8 @@ export default function About()  {
               <p className="text-slate-400 text-lg leading-relaxed font-medium text-center md:text-left">
                 I'm <span className="text-slate-400 font-semibold">Nihashini</span>, a{" "}
                 <span className="text-slate-400 font-semibold">Computer Science and Technology undergraduate</span>{" "}
-                at <span className="text-slate-400">Uva Wellassa University</span>, passionate about building{" "}
+                at <span className="text-slate-400">Uva Wellassa University</span>, passionate about solving real-world
+                problems through code and building{" "}
                 <span className="text-slate-400">scalable</span>,{" "}
                 <span className="text-slate-400">user-friendly</span> web applications.
               </p>
@@ -73,12 +74,17 @@ export default function About()  {
               <p className="text-slate-400 text-lg leading-relaxed text-center md:text-left">
                 I've developed projects like an{" "}
                 <span className="text-blue-400">E-Commerce Platform</span>, a{" "}
-                <span className="text-blue-400">Book Review System</span>, and a{" "}
-                <span className="text-blue-400">MERN stack To-Do app, Car Rental System</span>, emphasizing{" "}
+                <span className="text-blue-400">Book Review System</span>, a{" "}
+                <span className="text-blue-400">MERN Stack To-Do App</span>, and a{" "}
+                <span className="text-blue-400">Car Rental System</span>, emphasizing{" "}
                 <span className="text-blue-400">intuitive user experiences</span>,{" "}
                 <span className="text-blue-400">secure authentication</span>, and{" "}
-                <span className="text-blue-400">efficient data handling</span>.
+                <span className="text-blue-400">efficient data handling</span>. I thrive in{" "}
+                <span className="text-blue-400">Agile team environments</span>, value clean, maintainable code, and am
+                always eager to learn emerging technologies and best practices.
               </p>
+
+
             </div>
 
           </div>

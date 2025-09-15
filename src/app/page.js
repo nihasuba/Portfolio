@@ -28,10 +28,10 @@ export default function Home() {
             className="w-44 h-44 rounded-full object-cover border-4 border-white shadow-2xl relative z-10 group-hover:scale-110 transition-transform duration-300 ring-4 ring-sky-400/40"
           />
           {/* Orbiting text animation */}
-          <div className="absolute inset-0 w-44 h-44 animate-spin-slow">
+          {/* <div className="absolute inset-0 w-44 h-44 animate-spin-slow">
             <span className="absolute top-0 left-1/2 -translate-x-1/2 text-sky-400 font-bold text-sm bg-slate-900 px-2 py-1 rounded-full border border-sky-400">Nihashini</span>
-            <span className="absolute bottom-0 left-1/2 -translate-x-1/2 text-fuchsia-400 font-bold text-xs bg-slate-900 px-2 py-1 rounded-full border border-fuchsia-400">Software Developer</span>
-          </div>
+            <span className="absolute bottom-0 left-1/2 -translate-x-1/2 text-fuchsia-400 font-bold text-xs bg-slate-900 px-2 py-1 rounded-full border border-fuchsia-400">Developer</span>
+          </div> */}
           {/* Extra glow */}
           <span className="absolute -inset-2 rounded-full blur-2xl opacity-40 bg-gradient-to-tr from-sky-400 via-fuchsia-500 to-blue-500 z-0"></span>
         </MotionDiv>
@@ -48,13 +48,13 @@ export default function Home() {
           Nihashini Subathran
         </MotionDiv>
         <MotionDiv
-          className="text-lg sm:text-2xl font-semibold text-blue-200 text-center animate-pulse"
+          className="text-lg sm:text-2xl font-semibold text-blue-200 text-center animate-pulse "
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.7, ease: 'easeOut' }}
+          transition={{ duration: 0.2, delay: 0.2, ease: 'easeOut' }}
           as="h2"
         >
-          Software developer
+          Full-Stack developer
         </MotionDiv>
         <MotionDiv
           className="max-w-xl text-center text-base sm:text-lg text-slate-500"
