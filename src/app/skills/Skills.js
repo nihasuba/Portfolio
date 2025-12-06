@@ -78,7 +78,7 @@ const Skills = () => {
           </p>
         </MotionDiv>
 
-        {/* Skills Grid — FIXED full width */}
+        {/* Skills Grid */}
         <MotionDiv
           className="w-full grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-6 gap-3 sm:gap-4"
           initial="hidden"
