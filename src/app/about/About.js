@@ -6,22 +6,17 @@ import MotionDiv from "@/components/MotionDiv";
 export default function About()  {
   const [ref, inView] = useInView({ threshold: 0.15 });
   return (
-    <div>
+    <div className="mx-auto flex items-center justify-center">
       <MotionSection
         id="about"
         ref={ref}
-        className={`animated-gradient-bg py-16 md:py-24 text-slate-50`}
+        className={`animated-gradient-bg py-16 md:py-24 text-slate-50 flex items-center justify-center`}
         initial={{ opacity: 0, y: 40 }}
         animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
-        <div className="container mx-auto px-4">
-          {/* <div className="flex items-center justify-center mb-10 gap-3"> 
-            <div className="h-5 w-5 bg-sky-400 rounded-full" /> 
-            <h2 className="text-4xl font-extrabold text-center bg-gradient-to-r from-sky-400 via-fuchsia-500 to-blue-500 bg-clip-text text-transparent animate-gradient-x">
-              About Me
-            </h2>
-          </div> */}
+        <div className="max-w-7xl mx-auto flex items-center justify-center px-4 sm:px-6 lg:px-8">
+          
           <div className={`flex flex-col md:flex-row gap-10 md:gap-16 items-center transition-transform duration-700 ${inView ? 'animate-super-in' : 'translate-y-8 opacity-0'}`}>
             
             {/* Left Image */}

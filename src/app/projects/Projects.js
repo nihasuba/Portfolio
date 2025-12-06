@@ -58,12 +58,12 @@ export default function Projects() {
     <MotionSection
       id="projects"
       ref={ref}
-      className="animated-gradient-bg py-16 md:py-24"
+      className="animated-gradient-bg py-16 md:py-24 flex items-center justify-center"
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
       transition={{ duration: 0.7, ease: "easeOut" }}
     >
-      <div className="max-w-7xl mx-auto space-y-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto space-y-16 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center">
         {/* Section Header */}
         <div className="text-center space-y-4">
           <div className="inline-flex items-center gap-2 justify-center">
@@ -76,7 +76,7 @@ export default function Projects() {
         </div>
 
         {/* Project Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 w-full justify-items-center">
           {(showAll ? projects : projects.slice(0, 5)).map((project, index) => (
             <div
               key={index}

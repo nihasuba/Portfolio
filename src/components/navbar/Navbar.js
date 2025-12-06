@@ -79,7 +79,7 @@ export default function Navbar() {
 
         {/* Nav Links */}
         <div
-          className={`flex-col md:flex-row items-center gap-2 md:gap-8 text-base font-semibold w-full md:w-auto md:flex 
+          className={`flex flex-col md:flex-row items-center justify-center mx-auto gap-2 md:gap-8 text-base font-semibold w-full md:w-auto md:flex 
             ${menuOpen ? 'flex' : 'hidden'} md:flex 
             bg-slate-900/95 backdrop-blur-sm md:bg-transparent absolute md:static left-0 top-16 md:top-auto px-4 md:px-0 py-4 md:py-0 border-b md:border-0 border-slate-800 md:shadow-none shadow-lg
           `}

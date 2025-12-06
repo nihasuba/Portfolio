@@ -14,11 +14,11 @@ export default function Contacts() {
   const [formStatus, setFormStatus] = useState(null);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-900 text-white px-4">
+    <div className="min-h-screen flex items-center justify-center bg-slate-900 text-white">
       <MotionSection
         id="contact"
         ref={ref}
-        className="py-16 md:py-24 w-full max-w-6xl"
+        className="py-16 md:py-24 w-full max-w-7xl px-4 sm:px-6 lg:px-8"
         initial={{ opacity: 0, y: 40 }}
         animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
